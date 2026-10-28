@@ -15,3 +15,9 @@ repo_build.prebuild_copy {
 }
 
 -- Apps: for each app generate batch files and a project based on kit files (e.g. my_name.my_app.kit)
+
+define_app("omniverse_editor.kit")
+define_app("omniverse_editor_streaming.kit")
+define_app("omniverse_editor_nvcf.kit")
+define_app("embryo.twin.kit")
+define_app("embryo.twin_streaming.kit")

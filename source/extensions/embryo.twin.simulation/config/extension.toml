@@ -1,0 +1,13 @@
+[package]
+title = "Embryo Twin Simulation"
+version = "0.1.0"
+description = "Prototype embryonic digital twin simulation"
+category = "Simulation"
+keywords = ["embryo", "digital twin", "cell simulation", "biology"]
+
+[dependencies]
+"omni.ui" = {}
+"omni.usd" = {}
+
+[[python.module]]
+name = "embryo.twin.simulation"

@@ -36,3 +36,6 @@ deps/**/user.toml
 
 # Streaming EventTrace
 *.etli
+
+source/extensions/digit_patterning_sim/
+source/apps/digit_patterning.kit
