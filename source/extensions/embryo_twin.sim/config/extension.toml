@@ -1,0 +1,12 @@
+[package]
+version = "0.1.0"
+title = "Embryo Digital Twin"
+description = "Cell-based embryo simulation with a gene regulatory network."
+
+[dependencies]
+"omni.ui" = {}
+"omni.usd" = {}
+
+
+[[python.module]]
+name = "embryo_twin.sim"
