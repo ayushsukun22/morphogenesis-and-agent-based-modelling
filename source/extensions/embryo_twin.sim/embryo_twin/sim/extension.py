@@ -185,6 +185,10 @@ class EmbryoTwinExtension(omni.ext.IExt):
 
     def _start(self):
 
+        if len(self.simulation.cells) >= self.simulation.MAX_CELLS:
+            self._stop_at_cell_limit()
+            return
+
         self.running = True
 
         self.status_label.text = (
@@ -192,6 +196,17 @@ class EmbryoTwinExtension(omni.ext.IExt):
         )
 
         print("[EmbryoTwin] Simulation started")
+
+    def _stop_at_cell_limit(self):
+
+        self.running = False
+        self.simulation.log_metrics(" FINAL")
+
+        self.status_label.text = (
+            "Status: MAX CELLS REACHED"
+        )
+
+        print("[EmbryoTwin] Maximum cell count reached; simulation stopped")
 
     def _stop(self):
 
@@ -268,6 +283,9 @@ class EmbryoTwinExtension(omni.ext.IExt):
             f"Cells: "
             f"{len(self.simulation.alive_cells())}"
         )
+
+        if len(self.simulation.cells) >= self.simulation.MAX_CELLS:
+            self._stop_at_cell_limit()
 
     # =====================================================
     # USD

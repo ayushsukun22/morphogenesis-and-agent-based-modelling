@@ -49,7 +49,7 @@ class GeneRegulatoryNetwork:
     # Integrate one timestep
     # ======================================================
 
-    def update(self, dt):
+    def update(self, dt, rng: np.random.Generator):
 
         # HIF1a: low-oxygen alarm
         self.hif1a += dt * (
@@ -79,7 +79,7 @@ class GeneRegulatoryNetwork:
             - 0.4 * self.sox2
             - 0.6 * self.notch
             - 0.4 * self.snail
-            + 0.05 * (np.random.random() - 0.5)
+            + 0.05 * (rng.random() - 0.5)
         )
 
         # YAP: only squeeze above normal contact counts, and it is capped

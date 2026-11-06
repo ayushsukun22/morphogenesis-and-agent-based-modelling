@@ -51,7 +51,7 @@ SCENARIOS = {
 # Running
 # ----------------------------------------------------------------------
 def run(name, hours=30.0, dt=0.1, seed=0):
-    np.random.seed(seed)                  # same noise every run
+    rng = np.random.default_rng(seed)     # same noise every run
     grn = GeneRegulatoryNetwork()
     sense = SCENARIOS[name]
     rows = []
@@ -59,7 +59,7 @@ def run(name, hours=30.0, dt=0.1, seed=0):
         t = i * dt
         for key, value in sense(t).items():
             setattr(grn, key, value)
-        grn.update(dt)
+        grn.update(dt, rng)
         rows.append([t] + [getattr(grn, n) for n in NODES + PHENO])
     return np.array(rows)
 
@@ -176,7 +176,7 @@ def plot(results, title_suffix=""):
 # cell and one stalk cell?  (each cell hears the other's SNAIL)
 # ----------------------------------------------------------------------
 def run_pair(hours=40.0, dt=0.1, seed=1, pressure=3.0, morphogen=0.5):
-    np.random.seed(seed)
+    rng = np.random.default_rng(seed)
     a, b = GeneRegulatoryNetwork(), GeneRegulatoryNetwork()
     for g in (a, b):
         g.morphogen = morphogen
@@ -185,8 +185,8 @@ def run_pair(hours=40.0, dt=0.1, seed=1, pressure=3.0, morphogen=0.5):
     for i in range(int(hours / dt) + 1):
         a.neighbor_signal = b.snail
         b.neighbor_signal = a.snail
-        a.update(dt)
-        b.update(dt)
+        a.update(dt, rng)
+        b.update(dt, rng)
         rows.append([i * dt, a.snail, b.snail, a.notch, b.notch,
                      a.protrusion, b.protrusion])
     return np.array(rows)

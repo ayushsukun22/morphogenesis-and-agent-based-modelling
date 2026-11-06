@@ -135,6 +135,7 @@ class TissueMechanics:
         for cell in cells:
 
             neighbors = []
+            neighbor_snail = []
 
             for other in cells:
 
@@ -154,9 +155,12 @@ class TissueMechanics:
                     distance <= self.interaction_radius
                 ):
 
-                    neighbors.append(
-                        delta / distance
-                    )
+                    neighbors.append(delta / distance)
+                    neighbor_snail.append(other.grn.snail)
+
+            # Notch input: how loud are my neighbours' SNAIL levels?
+            cell.grn.neighbor_signal = (
+                float(np.mean(neighbor_snail)) if neighbor_snail else 0.0)
 
             if not neighbors:
                 # No neighbors this step â€” zero out pressure so a

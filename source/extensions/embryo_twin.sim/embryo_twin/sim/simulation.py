@@ -15,6 +15,7 @@ from .chemical_field import ChemicalField
 
 
 class EmbryoSimulation:
+    MAX_CELLS = 1500
 
     def __init__(
         self,
@@ -36,6 +37,7 @@ class EmbryoSimulation:
         self.next_cell_id = 2
 
         self.cells = {}
+        self.rng = np.random.default_rng(42)
 
         self.bounds_min = bounds_min
         self.bounds_max = bounds_max
@@ -87,9 +89,8 @@ class EmbryoSimulation:
 
     def _spawn_seed_cell(self, count=2):
         self.cells = {}
-        rng = np.random.default_rng(42)
         for i in range(count):
-            position = rng.normal(
+            position = self.rng.normal(
                 loc=0.0,
                 scale=0.65,
                 size=3, )
@@ -109,6 +110,7 @@ class EmbryoSimulation:
         self.time = 0.0
         self.oxygen_field.grid[:] = 1.0
         self.morphogen_field.grid[:] = 0.0
+        self.rng = np.random.default_rng(42)
         self._spawn_seed_cell()
 
     # ======================================================
@@ -117,6 +119,38 @@ class EmbryoSimulation:
 
     def alive_cells(self):
         return [cell for cell in self.cells.values() if cell.alive]
+
+
+    def log_metrics(self, tag=""):
+        cells = self.alive_cells()
+        pos = np.array([c.position for c in cells])
+        snail = np.array([c.grn.snail for c in cells])
+        # newborn daughters have not felt a mechanics step yet,
+        # so leave them out of the pressure statistics
+        settled = [c for c in cells if c.age > 0.3] or cells
+        press = np.array([c.pressure for c in settled])
+
+        centre = pos.mean(axis=0)
+        dist = np.linalg.norm(pos - centre, axis=1)
+
+        eig = np.sort(np.linalg.eigvalsh(np.cov((pos - centre).T)))
+        roundness = float(np.sqrt(eig[-1] / max(eig[0], 1e-9)))
+
+        tips = snail > 0.8
+        tip_share = float(tips.mean())
+        tip_reach = (
+            float(dist[tips].mean() / dist.mean()) if tips.any() else float("nan")
+        )
+        p10, p50, p90 = np.percentile(press, [10, 50, 90])
+
+        print(
+            f"[METRICS{tag}] t={self.time:.1f}h cells={len(cells)} "
+            f"tip_share={tip_share:.2f} "
+            f"pressure p10/p50/p90={p10:.1f}/{p50:.1f}/{p90:.1f} "
+            f"roundness={roundness:.2f} tip_reach={tip_reach:.2f}",
+            flush=True,
+        )
+
 
     # ======================================================
     # Main update loop
@@ -127,6 +161,7 @@ class EmbryoSimulation:
         self.time += dt
 
         new_cells = []
+        pending_divisions = 0
 
         current_cells = list(self.alive_cells())
 
@@ -153,7 +188,7 @@ class EmbryoSimulation:
             cell.grn.oxygen = cell.oxygen
             cell.grn.morphogen = cell.morphogen_a
             cell.grn.pressure = cell.pressure
-            cell.grn.update(dt)
+            cell.grn.update(dt, self.rng)
             cell.sync_phenotype()
 
             # -------------------------
@@ -207,15 +242,18 @@ class EmbryoSimulation:
                 and
                 cell.oxygen >
                 self.oxygen_division_threshold
+                and len(self.cells) + pending_divisions < self.MAX_CELLS
             ):
 
                 daughter_a, daughter_b = (
                     cell.divide(
-                        self.next_cell_id
+                        self.next_cell_id,
+                        self.rng,
                     )
                 )
 
                 self.next_cell_id += 2
+                pending_divisions += 1
 
                 new_cells.append(
                     daughter_a
@@ -254,6 +292,8 @@ class EmbryoSimulation:
         # ==================================================
 
         self._prune_dead_cells()
+        if int(self.time/5) != int((self.time-dt)/5):
+            self.log_metrics()
 
     # ======================================================
     # Fate model
@@ -293,9 +333,12 @@ class EmbryoSimulation:
         already spawned replacement daughters before marking the
         parent dead."""
 
+
+
         dead_ids = [
             cell_id for cell_id, cell in self.cells.items()
             if not cell.alive
         ]
+
         for cell_id in dead_ids:
             del self.cells[cell_id]

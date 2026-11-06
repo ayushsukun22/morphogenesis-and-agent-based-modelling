@@ -115,12 +115,13 @@ class Cell:
     def divide(
         self,
         daughter_id_start: int,
+        rng: np.random.Generator,
     ):
         """
         Divide one cell into two daughter cells.
         """
 
-        direction = np.random.normal(
+        direction = rng.normal(
             0.0,
             1.0,
             size=3,
