@@ -1,0 +1,2 @@
+[METRICS] t=10.1h cells=256 tip_share=0.00 pressure p10/p50/p90=9.0/21.9/45.0 roundness=1.25 tip_reach=nan
+[METRICS FINAL] t=13.1h cells=1500 tip_share=0.37 pressure p10/p50/p90=1.5/2.6/3.7 roundness=1.05 tip_reach=1.04

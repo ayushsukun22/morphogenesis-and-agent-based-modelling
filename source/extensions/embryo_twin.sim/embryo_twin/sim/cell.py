@@ -121,11 +121,18 @@ class Cell:
         Divide one cell into two daughter cells.
         """
 
-        direction = rng.normal(
-            0.0,
-            1.0,
-            size=3,
-        )
+        jitter = rng.normal(0.0, 1.0, size=3)
+
+        jitter_norm = np.linalg.norm(jitter)
+
+        if jitter_norm > 1e-8:
+            jitter /= jitter_norm
+
+        # Tip-like cells divide along their own steering direction;
+        # calm cells divide in random directions.
+        bias = self.grn.polarity_bias
+
+        direction = bias * self.polarity + (1.0 - bias) * jitter
 
         length = np.linalg.norm(direction)
 
