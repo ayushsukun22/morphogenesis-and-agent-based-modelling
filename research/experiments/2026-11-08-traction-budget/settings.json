@@ -1,0 +1,76 @@
+{
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "substeps": [
+    16,
+    32
+  ],
+  "outer_dt": 0.05,
+  "horizon": 12,
+  "prepattern_duration": 20,
+  "conditions": {
+    "F2.5_b0.0": {
+      "budget": 2.5,
+      "follower_fraction": 0.0
+    },
+    "F2.5_b0.25": {
+      "budget": 2.5,
+      "follower_fraction": 0.25
+    },
+    "F2.5_b1.0": {
+      "budget": 2.5,
+      "follower_fraction": 1.0
+    },
+    "F7.5_b0.0": {
+      "budget": 7.5,
+      "follower_fraction": 0.0
+    },
+    "F7.5_b0.25": {
+      "budget": 7.5,
+      "follower_fraction": 0.25
+    },
+    "F7.5_b1.0": {
+      "budget": 7.5,
+      "follower_fraction": 1.0
+    },
+    "F15.0_b0.0": {
+      "budget": 15.0,
+      "follower_fraction": 0.0
+    },
+    "F15.0_b0.25": {
+      "budget": 15.0,
+      "follower_fraction": 0.25
+    },
+    "F15.0_b1.0": {
+      "budget": 15.0,
+      "follower_fraction": 1.0
+    },
+    "E018_reference": {
+      "budget": null,
+      "follower_fraction": null
+    }
+  },
+  "weight_rule": "b+(1-b)*D**4, normalized across mobile cells to fixed total F; +x direction",
+  "source_sha256": {
+    "__init__.py": "80602e35f3d6f46b2fd4ba141f033d197f3244a4feb0249f922a16e5c197b1b2",
+    "cell.py": "1e473c158b33898de25c46532b924167a3b9a75f77837633f2724ee3833a7dca",
+    "chemical_field.py": "338ca032cd26aee5280a65b9b754ab0fbd2c8d4b9d0b2dd81a53ab6b6693af7e",
+    "extension.py": "97b4aaabad3381261952f7c385b5addb54a971e3d0ac51e0a35876fde72af953",
+    "grn.py": "3869c276d472f5596e26b75db1153f3d04268278bf9768d3db3e10008ef01c9e",
+    "grn_debug.py": "cac7c4f24ae791a650ebd72565ac3d6e3d5a58303bf3b15cf06ff8fdc002eea8",
+    "mechanics.py": "2cbd608877ad05b4b74700c43f7e7e800239d2cdc576f2d1f00d320a4901c4ca",
+    "simulation.py": "866f1ae9eb99c82b74aa6c5afe0668fdcee8567d1f163e7b9c5e59a2473b245a"
+  },
+  "runner_sha256": "66bf41b1fa24635c2804cb06eb6f59584b0073c528e65a941b101df8727783be",
+  "helper_sha256": {
+    "branching_junction_sprouting.py": "825f394fc7eac70874d844ae6ec4270a69190b962a96050e4461682593faf16b",
+    "branching_prerequisites.py": "1fb44ea5afb796f35b713016c10bfdb72852ea4b49bd70f442e1b606e32a8a5f",
+    "branching_sprouting_assay.py": "18c42b4ad37299c976bd50a61fc2edde6fae8da1ee55d2f440b4ea25e0a35bc8",
+    "branching_adhesion_assay.py": "e4b1470b3ccc7f4b24e17551d2abb772b3a4f4bcec44ca9a8b7551a9e8846da1",
+    "branching_shared_state.py": "e26965445972cebebd5030a0183af3485846b5d3bec2546e318e5ffdcb6d7823",
+    "branching_baseline.py": "e4f4fd87465f0215d27aaa694257f637b24c3f936948a00f475f1b519b57d973"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "seed": 42,
+  "final_time": 20.0,
+  "peak_cells": 256,
+  "ablation_steps": 0,
+  "growth_arrest_steps": 200,
+  "reason": "requested_horizon"
+}

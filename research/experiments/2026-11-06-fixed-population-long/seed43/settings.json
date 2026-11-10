@@ -1,0 +1,27 @@
+{
+  "hours": 20.0,
+  "dt": 0.05,
+  "seeds": [
+    43
+  ],
+  "sample_every": 0.5,
+  "contact_factor": 1.25,
+  "protrusion_off_at": null,
+  "growth_off_at": 10.0,
+  "output": "_branching_fixed20_seed43",
+  "created_utc": "2026-11-06T03:22:29.536420+00:00",
+  "python": "3.12.8",
+  "numpy": "1.26.4",
+  "source_sha256": {
+    "__init__.py": "80602e35f3d6f46b2fd4ba141f033d197f3244a4feb0249f922a16e5c197b1b2",
+    "cell.py": "1e473c158b33898de25c46532b924167a3b9a75f77837633f2724ee3833a7dca",
+    "chemical_field.py": "338ca032cd26aee5280a65b9b754ab0fbd2c8d4b9d0b2dd81a53ab6b6693af7e",
+    "extension.py": "97b4aaabad3381261952f7c385b5addb54a971e3d0ac51e0a35876fde72af953",
+    "grn.py": "3869c276d472f5596e26b75db1153f3d04268278bf9768d3db3e10008ef01c9e",
+    "grn_debug.py": "cac7c4f24ae791a650ebd72565ac3d6e3d5a58303bf3b15cf06ff8fdc002eea8",
+    "mechanics.py": "2cbd608877ad05b4b74700c43f7e7e800239d2cdc576f2d1f00d320a4901c4ca",
+    "simulation.py": "866f1ae9eb99c82b74aa6c5afe0668fdcee8567d1f163e7b9c5e59a2473b245a"
+  },
+  "runner_sha256": "e4f4fd87465f0215d27aaa694257f637b24c3f936948a00f475f1b519b57d973",
+  "stop_policy": "requested horizon or application cell limit"
+}

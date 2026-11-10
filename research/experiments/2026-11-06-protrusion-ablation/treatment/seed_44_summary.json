@@ -1,0 +1,7 @@
+{
+  "seed": 44,
+  "final_time": 12.0,
+  "peak_cells": 936,
+  "ablation_steps": 40,
+  "reason": "requested_horizon"
+}

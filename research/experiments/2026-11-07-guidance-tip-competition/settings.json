@@ -1,0 +1,60 @@
+{
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "outer_dt": 0.05,
+  "substeps": [
+    16,
+    32
+  ],
+  "horizon": 12.0,
+  "conditions": {
+    "neither": [
+      false,
+      false
+    ],
+    "guidance": [
+      true,
+      false
+    ],
+    "competition": [
+      false,
+      true
+    ],
+    "both": [
+      true,
+      true
+    ]
+  },
+  "cell_count": 36,
+  "fixed_parent_cells": 12,
+  "radius": 0.5,
+  "adhesion": 0.7,
+  "cutoff": 2.5,
+  "repulsion": 4,
+  "damping": 2,
+  "contact_cutoff": 1.2,
+  "regulatory_tau": 0.5,
+  "notch_half_inhibition": 0.3,
+  "hill_exponent": 4,
+  "basal_traction": 0.15,
+  "tip_traction_increment": 2.35,
+  "source_sha256": {
+    "__init__.py": "80602e35f3d6f46b2fd4ba141f033d197f3244a4feb0249f922a16e5c197b1b2",
+    "cell.py": "1e473c158b33898de25c46532b924167a3b9a75f77837633f2724ee3833a7dca",
+    "chemical_field.py": "338ca032cd26aee5280a65b9b754ab0fbd2c8d4b9d0b2dd81a53ab6b6693af7e",
+    "extension.py": "97b4aaabad3381261952f7c385b5addb54a971e3d0ac51e0a35876fde72af953",
+    "grn.py": "3869c276d472f5596e26b75db1153f3d04268278bf9768d3db3e10008ef01c9e",
+    "grn_debug.py": "cac7c4f24ae791a650ebd72565ac3d6e3d5a58303bf3b15cf06ff8fdc002eea8",
+    "mechanics.py": "2cbd608877ad05b4b74700c43f7e7e800239d2cdc576f2d1f00d320a4901c4ca",
+    "simulation.py": "866f1ae9eb99c82b74aa6c5afe0668fdcee8567d1f163e7b9c5e59a2473b245a"
+  },
+  "runner_sha256": "18c42b4ad37299c976bd50a61fc2edde6fae8da1ee55d2f440b4ea25e0a35bc8",
+  "helper_sha256": {
+    "branching_adhesion_assay.py": "e4b1470b3ccc7f4b24e17551d2abb772b3a4f4bcec44ca9a8b7551a9e8846da1",
+    "branching_shared_state.py": "e26965445972cebebd5030a0183af3485846b5d3bec2546e318e5ffdcb6d7823",
+    "branching_baseline.py": "e4f4fd87465f0215d27aaa694257f637b24c3f936948a00f475f1b519b57d973"
+  }
+}

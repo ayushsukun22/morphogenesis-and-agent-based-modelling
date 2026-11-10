@@ -1,0 +1,10 @@
+{
+  "final_time": 19.99999999999944,
+  "steps": 800,
+  "cells": 256,
+  "potential_increases_above_tolerance": 0,
+  "maximum_step_increase": 0.0,
+  "maximum_centroid_drift": 1.8486130188118636e-15,
+  "maximum_near_zero_pairs": 0,
+  "initial_state_sha256": "2c846bb447e3193e79998844de7b19ee15a65557cf132a1369c327f367f30c95"
+}

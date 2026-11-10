@@ -1,0 +1,8 @@
+{
+  "final_time": 19.99999999999944,
+  "steps": 800,
+  "cells": 256,
+  "growth_arrest_steps": 800,
+  "midpoint_calls": 204800,
+  "initial_state_sha256": "2c846bb447e3193e79998844de7b19ee15a65557cf132a1369c327f367f30c95"
+}

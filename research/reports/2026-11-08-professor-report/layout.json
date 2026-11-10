@@ -1,0 +1,98 @@
+{
+  "pages": 23,
+  "planned_sections": 23,
+  "heading_pages": [
+    {
+      "title": "Self organized branching in a cell based simulation",
+      "page": 1
+    },
+    {
+      "title": "1 Research aim and biological motivation",
+      "page": 2
+    },
+    {
+      "title": "2 Software architecture and operation",
+      "page": 3
+    },
+    {
+      "title": "3 Cell state growth fields and fate labels",
+      "page": 4
+    },
+    {
+      "title": "4 Regulatory equations and phenotype readout",
+      "page": 5
+    },
+    {
+      "title": "5 Mechanical forces movement and feedback",
+      "page": 6
+    },
+    {
+      "title": "6 Measurements controls and interpretation",
+      "page": 7
+    },
+    {
+      "title": "7 Experiment catalogue for the original model",
+      "page": 8
+    },
+    {
+      "title": "8 Experiment catalogue for synthetic assays",
+      "page": 9
+    },
+    {
+      "title": "9 Baseline activation growth and protrusion",
+      "page": 10
+    },
+    {
+      "title": "10 Longer observation and controlled timestep tests",
+      "page": 11
+    },
+    {
+      "title": "11 Passive refinement and coupled mechanical substeps",
+      "page": 12
+    },
+    {
+      "title": "12 Pair specific adhesion and sorting",
+      "page": 13
+    },
+    {
+      "title": "13 Guidance and competition in a synthetic sheet",
+      "page": 14
+    },
+    {
+      "title": "14 Static signaling reveals a geometry dependence",
+      "page": 15
+    },
+    {
+      "title": "15 Mechanical integrity under imposed traction",
+      "page": 16
+    },
+    {
+      "title": "16 Recombining signaling guidance and junctions",
+      "page": 17
+    },
+    {
+      "title": "17 Matched force budgets distinguish scale and allocation",
+      "page": 18
+    },
+    {
+      "title": "18 Supported findings and unresolved explanations",
+      "page": 19
+    },
+    {
+      "title": "19 Questions and decisions for the supervisor",
+      "page": 20
+    },
+    {
+      "title": "20 Reproducibility validation and study limitations",
+      "page": 21
+    },
+    {
+      "title": "Appendix A Experiment records and evidence locations",
+      "page": 22
+    },
+    {
+      "title": "Appendix B Biological references and notation",
+      "page": 23
+    }
+  ]
+}

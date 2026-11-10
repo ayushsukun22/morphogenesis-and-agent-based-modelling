@@ -1,0 +1,9 @@
+{
+  "final_time": 19.999999999999865,
+  "steps": 400,
+  "cells": 256,
+  "growth_arrest_steps": 400,
+  "midpoint_calls": 102400,
+  "polarity_scaled_steps": 400,
+  "initial_state_sha256": "2c846bb447e3193e79998844de7b19ee15a65557cf132a1369c327f367f30c95"
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "research\\experiments\\2026-11-06-shared-state-timesteps\\analysis\\pairwise_errors.csv": "799c569d989c6e801c8cd068cb444286f3ccafa360493b8d68860d46613c23dc",
+    "research\\experiments\\2026-11-06-shared-state-timesteps\\analysis\\final_summary.csv": "6628deb9607f0d70a070c8dc844acc93dd46847c5d7facf8ad4b064975edc5e5",
+    "research\\experiments\\2026-11-06-polarity-memory-scaling\\analysis\\pairwise_errors.csv": "720792d79aa170996d3ab0c64410965d42a10b499b543e52cf7813752cb179d4",
+    "research\\experiments\\2026-11-06-polarity-memory-scaling\\analysis\\final_summary.csv": "729146c8e73672d5471fb65a845f1f45bac20a3babe18d9cc99b769a58848927"
+  },
+  "script_sha256": "66495379fe7eb09d0f7a015f259b20427c5c948e1e451d5a8d49ee817ec3c297"
+}

@@ -1,0 +1,13 @@
+{
+  "final_time": 20.00000000000015,
+  "cells": 256,
+  "outer_steps": 200,
+  "inner_steps": 200,
+  "orientation_cell_evaluations": 51200,
+  "grn_calls": 51200,
+  "oxygen_steps": 200,
+  "morphogen_steps": 200,
+  "midpoint_calls": 51200,
+  "growth_arrest_steps": 200,
+  "initial_state_sha256": "2c846bb447e3193e79998844de7b19ee15a65557cf132a1369c327f367f30c95"
+}

@@ -1,0 +1,22 @@
+{
+  "onset": 10,
+  "seeds": [42, 43, 44],
+  "conditions": {
+    "normal": {
+      "runs": ["../2026-11-06-long-baseline/branching_long_12h_seed42", "../2026-11-06-long-baseline/branching_long_12h_seeds43_44"],
+      "analysis": "../2026-11-06-trajectory-analysis"
+    },
+    "protrusion_off": {
+      "runs": ["../2026-11-06-protrusion-ablation/treatment"],
+      "analysis": "../2026-11-06-protrusion-ablation/trajectories"
+    },
+    "growth_off": {
+      "runs": ["growth_off"],
+      "analysis": "growth_off_trajectories"
+    },
+    "both_off": {
+      "runs": ["both_off"],
+      "analysis": "both_off_trajectories"
+    }
+  }
+}
