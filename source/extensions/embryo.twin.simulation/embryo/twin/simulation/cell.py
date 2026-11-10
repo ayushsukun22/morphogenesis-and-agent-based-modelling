@@ -52,8 +52,8 @@ class Cell:
         )
     )
 
-    adhesion_strength: float =   0.4 #0.7
-    protrusion_strength: float =  0.8 #0.25
+    adhesion_strength: float =   0.7
+    protrusion_strength: float =  0.25
 
     pressure: float = 0.0
     time_in_fate: float = 0.0

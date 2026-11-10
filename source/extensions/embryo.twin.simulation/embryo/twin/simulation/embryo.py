@@ -26,8 +26,8 @@ class EmbryoSimulation:
         self.mechanics = TissueMechanics(
         interaction_radius=2.5,
         repulsion_strength=4.0,
-        adhesion_strength= 0.4 ,        #1.8,
-        protrusion_strength= 0.8,        #0.12,
+        adhesion_strength= 1.8,
+        protrusion_strength= 0.12,
         polarity_memory=0.2,
         damping=2.0
                     )
@@ -85,7 +85,7 @@ class EmbryoSimulation:
     # Setup / reset
     # ======================================================
 
-    def _spawn_seed_cell(self, count=25):
+    def _spawn_seed_cell(self, count=1):
         self.cells = {}
         rng = np.random.default_rng(42)
         for i in range(count):

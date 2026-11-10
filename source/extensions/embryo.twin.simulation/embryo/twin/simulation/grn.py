@@ -43,8 +43,8 @@ class GeneRegulatoryNetwork:
         # read by Cell/TissueMechanics, never fed back as an
         # "input" to update())
         # ------------------------------------------------
-        self.adhesion =  0.4     #0.7
-        self.protrusion = 0.8    #0.25
+        self.adhesion =  0.7
+        self.protrusion = 0.25
         self.polarity_bias = 0.8   # how strongly polarity opposes adhesion
         self.division_rate = 1.0   # multiplier on growth_rate
 
@@ -63,7 +63,7 @@ class GeneRegulatoryNetwork:
         # (chronic hypoxia should eventually slow cycling even
         # though acute HIF1a is itself an oxygen response)
         self.cell_cycle += dt * (
-            0.8 * self.oxygen
+            0.4 * self.oxygen
             - 0.3 * self.hif1a
             - 0.4 * self.cell_cycle
         )
@@ -72,7 +72,7 @@ class GeneRegulatoryNetwork:
         # Increase the penalty SNAIL applies to SOX2 from 0.9 to 1.5
         self.sox2 += dt * (
             0.6 * self.morphogen
-            - 1.5 * self.snail
+            - 0.9 * self.snail
             - 0.3 * self.sox2
         )
 
@@ -80,10 +80,10 @@ class GeneRegulatoryNetwork:
         # laterally inhibited by neighbors' Notch signal, plus a
         # small noise term to break initial symmetry
         self.snail += dt * (
-            0.9 * self.yap
-            - 0.5 * self.sox2
+            1.2 * self.yap
+            - 0.4 * self.sox2
             - 0.6 * self.notch          # lateral inhibition
-            - 0.1 * self.snail
+            - 0.4 * self.snail #0.1
             + 0.05 * (self.noise - 0.5)   # symmetry-breaking noise
         )
 
@@ -133,8 +133,8 @@ class GeneRegulatoryNetwork:
     # ======================================================
 
     def classify_fate(self):
-        if self.snail > 0.8:
+        if self.snail > 0.2: #0.8
             return "MESENCHYMAL"
-        if self.sox2 > 0.8:
+        if self.sox2 > 0.8: #0.8
             return "PROGENITOR"
         return "TRANSITIONAL"
